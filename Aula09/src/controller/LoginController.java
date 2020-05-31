@@ -28,6 +28,7 @@ public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String arquivoLogSuccess = "Users.txt";
 	public static final String arquivoLogError = "LogError.txt";
+	public static final String path = "C:\\Users\\allan\\git\\ECP6AN-MCA1_PratProgInt\\Aula09\\WebContent\\log\\";
 	private PrintWriter arquivo;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -54,10 +55,10 @@ public class LoginController extends HttpServlet {
 
 				session.setAttribute("user", user);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
-				abrir("C:\\Users\\allan\\git\\PratProgInt\\Aula09\\WebContent\\log\\" + arquivoLogSuccess);
+				abrir(path + arquivoLogSuccess);
 				escrever(pUsuario);
 			} else {
-				abrir("C:\\Users\\allan\\git\\PratProgInt\\Aula09\\WebContent\\log\\" + arquivoLogError);
+				abrir(path + arquivoLogError);
 				escreverError(pUsuario);
 				session.invalidate();
 				response.sendRedirect("login.jsp");
