@@ -1,0 +1,45 @@
+O usuário admin entrou!
+
+31/05/2020 01:47:23
+31/05/2020 02:21:23- O usuário admin entrou! 
+
+31/05/2020 02:21:27- O usuário admin entrou! 
+
+31/05/2020 02:21:30- O usuário admin entrou! 
+
+31/05/2020 02:23:54- O usuário Allan entrou! 
+
+31/05/2020 02:25:54#Sucsess - O usuário Allan entrou! 
+
+31/05/2020 02:26:18#Sucsess - O usuário admin entrou! 
+
+31/05/2020 02:43:43#Sucsess - O usuário: Admin entrou! 
+
+31/05/2020 02:44:47#Sucsess - O usuário: Admin entrou! 
+
+31/05/2020 02:45:06#Sucsess - O usuário: Admin entrou! 
+
+31/05/2020 02:52:41#Sucsess - O usuário: admin entrou! 
+
+31/05/2020 02:53:21#Sucsess - O usuário: admin entrou! 
+
+31/05/2020 02:53:40#Sucsess - O usuário: admin entrou! 
+
+31/05/2020 02:55:29#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 03:02:14#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 03:02:54#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 03:06:42#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 03:07:47#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 03:08:02#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 03:19:59#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 15:15:41#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 15:40:12#Sucsess - O usuário: >> admin << entrou! 
+

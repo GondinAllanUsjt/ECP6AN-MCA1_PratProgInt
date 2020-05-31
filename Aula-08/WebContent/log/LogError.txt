@@ -1,0 +1,16 @@
+31/05/2020 02:53:33#Error Usuário:  não encontrado(usuário ou senha invalida)
+
+31/05/2020 02:53:45#Error Usuário: admin não encontrado(usuário ou senha invalida)
+
+31/05/2020 02:55:24#Error Usuário: >> aLLAN << não encontrado(usuário ou senha invalida)
+
+31/05/2020 03:07:51#Error Usuário: >> Allan << não encontrado(usuário ou senha invalida)
+
+31/05/2020 03:07:56#Error Usuário: >>  << não encontrado(usuário ou senha invalida)
+
+31/05/2020 03:19:49#Error Usuário: >> asflkas << não encontrado(usuário ou senha invalida)
+
+31/05/2020 03:19:54#Error Usuário: >> Allan << não encontrado(usuário ou senha invalida)
+
+31/05/2020 15:08:57#Error Usuário: >> admin << não encontrado(usuário ou senha invalida)
+
