@@ -4,3 +4,11 @@
 
 31/05/2020 19:01:36#Error Usuário: >> Allan << não encontrado(usuário ou senha invalida)
 
+31/05/2020 20:40:52#Error Usuário: >> Allan << não encontrado(usuário ou senha invalida)
+
+31/05/2020 20:41:16#Error Usuário: >> Allan << não encontrado(usuário ou senha invalida)
+
+31/05/2020 20:41:21#Error Usuário: >> Allan << não encontrado(usuário ou senha invalida)
+
+31/05/2020 20:43:31#Error Usuário: >> Allan << não encontrado(usuário ou senha invalida)
+
