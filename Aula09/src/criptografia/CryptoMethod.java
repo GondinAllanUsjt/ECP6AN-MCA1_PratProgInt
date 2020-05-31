@@ -1,5 +1,10 @@
 /** 
- * Antes de testar */
+ * Antes de testar
+ * Descomentar a lina 39
+ * Gerar a chave
+ * copiar a senha criptografada para o banco
+ * comentar a linha 39
+ * tentar logar*/
 
 package criptografia;
 
@@ -8,7 +13,7 @@ import java.io.File;
 public class CryptoMethod {
 	public String criptografa(String senha) throws Exception {
 
-		File arquivo = new File("C:\\Users\\allan\\git\\PratProgInt\\Aula09\\WebContent\\log","key.txt");
+		File arquivo = new File("C:\\Users\\allan\\git\\ECP6AN-MCA1_PratProgInt\\Aula09\\WebContent\\log","key.txt");
 		String sMsgClara = senha;
 		String sMsgCifrada = null;
 		String sMsgDecifrada = null;
