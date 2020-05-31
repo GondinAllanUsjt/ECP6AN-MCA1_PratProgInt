@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import criptografia.CryptoMethod;
 import model.Login;
 import service.PaisesService;
 
@@ -27,14 +28,13 @@ public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String arquivoLogSuccess = "Users.txt";
 	public static final String arquivoLogError = "LogError.txt";
-	public static final String path = "C:\\Users\\allan\\git\\ECP6AN-MCA1_PratProgInt\\Aula-08\\WebContent\\log\\";
 	private PrintWriter arquivo;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		
+
 		String pUsuario = request.getParameter("usuario");
 		String pSenha = request.getParameter("senha");
 
@@ -43,18 +43,28 @@ public class LoginController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Login user = new Login();
 		user = paises.logar(pUsuario);
+		CryptoMethod c = new CryptoMethod();
 
-		if (pSenha.equals(user.getSenha())) {
-			
-			session.setAttribute("user", user);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-			abrir("C:\\Users\\allan\\git\\ECP6AN-MCA1_PratProgInt\\Aula-08\\WebContent\\log\\" + arquivoLogSuccess);
-			escrever(pUsuario);
-		} else {
-			abrir("C:\\Users\\allan\\git\\ECP6AN-MCA1_PratProgInt\\Aula-08\\WebContent\\log\\" + arquivoLogError);
-			escreverError(pUsuario);
-			session.invalidate();
-			response.sendRedirect("login.jsp");
+		
+		
+		try {
+			String criptografia = c.criptografa(pSenha);
+
+			if (criptografia.equals(user.getSenha())) {
+
+				session.setAttribute("user", user);
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+				abrir("C:\\Users\\allan\\git\\PratProgInt\\Aula09\\WebContent\\log\\" + arquivoLogSuccess);
+				escrever(pUsuario);
+			} else {
+				abrir("C:\\Users\\allan\\git\\PratProgInt\\Aula09\\WebContent\\log\\" + arquivoLogError);
+				escreverError(pUsuario);
+				session.invalidate();
+				response.sendRedirect("login.jsp");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -75,17 +85,18 @@ public class LoginController extends HttpServlet {
 		arquivo = new PrintWriter(outFileStream);
 	}
 
-	
 	public void escrever(String pUsuario) throws IOException {
 		synchronized (arquivo) {
-			arquivo.println(getDateTime() + "#Sucsess"+ " - O usuário: "+ ">> "+pUsuario +" <<"+ " entrou! "+"\n");
+			arquivo.println(
+					getDateTime() + "#Success" + " - O usuário: " + ">> " + pUsuario + " <<"+" entrou! " + "\n");
 			arquivo.flush();
 		}
 	}
-	
+
 	public void escreverError(String pUsuario) throws IOException {
 		synchronized (arquivo) {
-			arquivo.println(getDateTime() + "#Error"+ " Usuário: " +">> "+ pUsuario +" <<"+" não encontrado(usuário ou senha invalida)"+"\n");
+			arquivo.println(getDateTime() + "#Error" + " Usuário: " + ">> " + pUsuario + " <<"
+					+ " não encontrado(usuário ou senha invalida)" + "\n");
 			arquivo.flush();
 		}
 	}

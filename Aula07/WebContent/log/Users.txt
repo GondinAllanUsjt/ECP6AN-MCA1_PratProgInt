@@ -43,3 +43,7 @@ O usuário admin entrou!
 
 31/05/2020 15:40:12#Sucsess - O usuário: >> admin << entrou! 
 
+31/05/2020 15:59:03#Sucsess - O usuário: >> Allan << entrou! 
+
+31/05/2020 16:51:26#Sucsess - O usuário: >> Allan << entrou! 
+
