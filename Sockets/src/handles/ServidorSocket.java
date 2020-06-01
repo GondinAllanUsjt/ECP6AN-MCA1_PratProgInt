@@ -22,16 +22,16 @@ public class ServidorSocket extends Thread {
 	private static ServerSocket server; 
 	private String nome;
 	private Socket con;
-	private InputStream in;  
+	private InputStream inStr;  
 	private InputStreamReader inr;  
-	private BufferedReader bfr;
+	private BufferedReader bufferRe;
 	
 	public ServidorSocket(Socket con){
 		   this.con = con;
 		   try {
-		         in  = con.getInputStream();
-		         inr = new InputStreamReader(in);
-		          bfr = new BufferedReader(inr);
+			   inStr = con.getInputStream();
+		         inr = new InputStreamReader(inStr);
+		         bufferRe = new BufferedReader(inr);
 		   } catch (IOException e) {
 		          e.printStackTrace();
 		   }                          
@@ -43,15 +43,15 @@ public class ServidorSocket extends Thread {
 		                                      
 		    String msg;
 		    OutputStream ou =  this.con.getOutputStream();
-		    Writer ouw = new OutputStreamWriter(ou);
-		    BufferedWriter bfw = new BufferedWriter(ouw); 
-		    clientes.add(bfw);
-		    nome = msg = bfr.readLine();
+		    Writer w = new OutputStreamWriter(ou);
+		    BufferedWriter bufferW = new BufferedWriter(w); 
+		    clientes.add(bufferW);
+		    nome = msg = bufferRe.readLine();
 		               
 		    while(!"Sair".equalsIgnoreCase(msg) && msg != null)
 		      {           
-		       msg = bfr.readLine();
-		       sendToAll(bfw, msg);
+		       msg = bufferRe.readLine();
+		       sendToAll(bufferW, msg);
 		       System.out.println(msg);                                              
 		       }
 		                                      
@@ -63,34 +63,33 @@ public class ServidorSocket extends Thread {
 	
 	public void sendToAll(BufferedWriter bwSaida, String msg) throws  IOException 
 	{
-	  BufferedWriter bwS;
+	  BufferedWriter bufferW;
 	    
 	  for(BufferedWriter bw : clientes){
-	   bwS = (BufferedWriter)bw;
-	   if(!(bwSaida == bwS)){
-	     bw.write(nome + " -> " + msg+"\r\n");
+		  bufferW = (BufferedWriter)bw;
+	   if(!(bwSaida == bufferW)){
+	     bw.write(nome + ": " + msg+"\r\n");
 	     bw.flush(); 
 	   }
-	  }          
+	  }
 	}
 	
 	public static void main(String []args) {
 	    
 		  try{
-		    //Cria os objetos necessário para instânciar o servidor
 		    JLabel lblMessage = new JLabel("Porta do Servidor:");
 		    JTextField txtPorta = new JTextField("12345");
 		    Object[] texts = {lblMessage, txtPorta };  
 		    JOptionPane.showMessageDialog(null, texts);
 		    server = new ServerSocket(Integer.parseInt(txtPorta.getText()));
 		    clientes = new ArrayList<BufferedWriter>();
-		    JOptionPane.showMessageDialog(null,"Servidor ativo na porta: "+         
+		    JOptionPane.showMessageDialog(null,"Servidor iniciado porta: "+         
 		    txtPorta.getText());
 		    
 		     while(true){
 		       System.out.println("Aguardando conexão...");
 		       Socket con = server.accept();
-		       System.out.println("Cliente conectado...");
+		       System.out.println("Usuário conectado...");
 		       Thread t = new ServidorSocket(con);
 		        t.start();   
 		    }
@@ -99,5 +98,5 @@ public class ServidorSocket extends Thread {
 		    
 		    e.printStackTrace();
 		  }                       
-		 }// Fim do método main                      
+		 }                   
 }
